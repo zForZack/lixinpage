@@ -1,0 +1,4 @@
+{
+    "Tips": "这里是说明内容主要是通知，和统一身份认证的通知，比如说明一下新旧切换，密码规则等这里是说明内容主要是通知，和统一身份认证的通知，比如说明一下新旧切换，密码规则等",
+    "data": {"message":null,"data":[{"id":"1","extras":null,"company_id":null,"deleted":0,"add_account":"sync","add_time":"2020-07-29","edit_account":"sync","edit_time":"2020-07-30","delete_account":null,"delete_time":null,"business_domain_id":"1","business_domain_name":"智慧校园业务域","system_id":"1","system_name":"管理门户","name":"管理门户","application_id":"1","sync_url":"http://admin-center.paas.lixin.edu.cn/api/v1/open/sync/roles","enabled":1}],"code":0}
+}
