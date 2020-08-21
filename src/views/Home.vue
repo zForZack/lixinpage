@@ -12,16 +12,20 @@
         <div class="authListRight">
           <div class="newAuth">
             <h2>新版认证</h2>
-            <ul>
-              <li v-for="item in newList" :key="item.id" @click="routerTo(item.sync_url)">{{item.name}}</li>
-            </ul>
+            <div class="newitem">
+              <ul>
+                <li v-for="item in newList" :key="item.id" @click="routerTo(item.information_url)">{{item.name}}</li>
+              </ul>
+            </div>
             <div class="clearfix"></div>
           </div>
           <div class="oldAuth">
             <h2>老版认证</h2>
-            <ul>
-              <li v-for="item in oldList" :key="item.id">{{item.name}}</li>
+            <div class="olditem">
+              <ul>
+              <li v-for="item in oldList" :key="item.id" @click="routerTo(item.information_url)">{{item.name}}</li>
             </ul>
+            </div>
             <div class="clearfix"></div>
           </div>
         </div>
@@ -46,7 +50,7 @@
 
 <script>
 import axios from 'axios'
-import dialogContent from '../assets/index.json'
+import dialogContent from '../../public/index.json'
 
 export default {
   name: 'Home',
@@ -64,7 +68,7 @@ export default {
   computed: {
     newList () {
       for (let i = 0; i < this.data.length; i++) {
-        if (this.data[i].system_id === '1') {
+        if (this.data[i].description === 'new') {
           this.newlistPush(this.data[i])
         }
       }
@@ -72,7 +76,7 @@ export default {
     },
     oldList () {
       for (let i = 0; i < this.data.length; i++) {
-        if (this.data[i].system_id === '2') {
+        if (this.data[i].description === 'old') {
           this.oldlistPush(this.data[i])
         }
       }
@@ -81,7 +85,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('http://192.168.2.68:20001/api/application/v1/example/findApplication')
+      axios.get('http://cas.paas.lixin.edu.cn/application/api/application/v1/example/findApplication')
         .then(this.getHomeInfoSucc)
         .catch()
     },
@@ -188,4 +192,13 @@ img {
     background: url(../assets/images/icon.png) no-repeat;
   }
 }
+.newitem{
+  height: 120px;
+  overflow-y: scroll;
+}
+.olditem{
+  height: 330px;
+  overflow-y: scroll;
+}
+
 </style>
